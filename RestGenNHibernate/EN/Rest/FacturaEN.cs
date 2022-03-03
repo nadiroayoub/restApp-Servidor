@@ -3,30 +3,30 @@ using System;
 // Definición clase FacturaEN
 namespace RestGenNHibernate.EN.Rest
 {
-public partial class FacturaEN
-{
-/**
- *	Atributo id
- */
-private int id;
+    public partial class FacturaEN
+    {
+        /**
+         *	Atributo id
+         */
+        private int id;
 
 
 
-/**
- *	Atributo numero
- */
-private string numero;
+        /**
+         *	Atributo numero
+         */
+        private string numero;
 
 
 
-/**
- *	Atributo fecha
- */
-private Nullable<DateTime> fecha;
+        /**
+         *	Atributo fecha
+         */
+        private Nullable<DateTime> fecha;
 
 
 
-/**
+/**sdasd
  *	Atributo precio
  */
 private double precio;
