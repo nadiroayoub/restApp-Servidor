@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="RestGenNHibernate"
+		                   namespace="RestGenNHibernate.EN.Rest">
+		    
+		    
+			
+				<class name="ClienteEN" table="Cliente"> 
+						<id name="Dni" column="dniCliente"/> 
+			
+					
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="Apellidos" type="string"> 
+						<column name="apellidos"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+						<bag name="Mesa" table="[cliente_mesa]"  >
+							<key>
+								
+									<column name="FK_dniCliente_idCliente"/> 
+							</key>
+      						<many-to-many class="RestGenNHibernate.EN.Rest.MesaEN">
+									<column name="FK_idMesa_idMesa"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<many-to-one name="Factura" class="RestGenNHibernate.EN.Rest.FacturaEN" >	
+								<column name="FK_idFactura_idFactura"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Pago" class="RestGenNHibernate.EN.Rest.PagoEN" >	
+								<column name="FK_idPago_idPago"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ClienteENReadAllHQL">from ClienteEN</query>
+		</hibernate-mapping>
+	

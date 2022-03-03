@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="RestGenNHibernate"
+		                   namespace="RestGenNHibernate.EN.Rest">
+		    
+		    
+			
+				<class name="RolEN" table="Rol"> 
+				  	
+						<id name="Id" column="idRol" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+			
+			
+			
+		  			
+						<many-to-one name="Usuario" class="RestGenNHibernate.EN.Rest.EmpleadoEN" >	
+								<column name="FK_dniEmpleado_idUsuario"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Cajero" class="RestGenNHibernate.EN.Rest.CajeroEN" >	
+								<column name="FK_idCajero_idCajero"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Cocinero" class="RestGenNHibernate.EN.Rest.CocineroEN" >	
+								<column name="FK_idCocinero_idCocinero"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Encargado" class="RestGenNHibernate.EN.Rest.EncargadoEN" >	
+								<column name="FK_idEncargado_idEncargado"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Camarero" class="RestGenNHibernate.EN.Rest.CamareroEN" >	
+								<column name="FK_idCamarero_idCamarero"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="RolENReadAllHQL">from RolEN</query>
+		</hibernate-mapping>
+	

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="RestGenNHibernate"
+		                   namespace="RestGenNHibernate.EN.Rest">
+		    
+		    
+			
+				<class name="PlatoIngredienteEN" table="PlatoIngrediente"> 
+				  	
+						<id name="Id" column="idPlatoIngrediente" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Cantidad" type="double"> 
+						<column name="cantidad"  not-null="true"/>
+					</property>
+					<property name="Stock" type="double"> 
+						<column name="stock"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+						<many-to-one name="Plato" class="RestGenNHibernate.EN.Rest.PlatoEN" >	
+								<column name="FK_idPlato_idPlato"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Ingrediente" class="RestGenNHibernate.EN.Rest.IngredienteEN" >	
+								<column name="FK_idIngrediente_idIngrediente"/> 
+						</many-to-one>
+											 					
+			
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="PlatoIngredienteENReadAllHQL">from PlatoIngredienteEN</query>
+		</hibernate-mapping>
+	

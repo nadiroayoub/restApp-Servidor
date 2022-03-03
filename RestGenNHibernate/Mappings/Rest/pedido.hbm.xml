@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="RestGenNHibernate"
+		                   namespace="RestGenNHibernate.EN.Rest">
+		    
+		    
+			
+				<class name="PedidoEN" table="Pedido"> 
+				  	
+						<id name="Id" column="idPedido" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="EstadoPedido" > 
+						<column name="estadoPedido"  not-null="true"/>
+					</property>
+					<property name="Fecha" type="date"> 
+						<column name="fecha"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+						<many-to-one name="Camarero" class="RestGenNHibernate.EN.Rest.CamareroEN" >	
+								<column name="FK_idCamarero_idCamarero"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="LineaPedido" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_idPedido_idPedido"/>
+					      	</key>
+							<one-to-many class="RestGenNHibernate.EN.Rest.LineaPedidoEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Pago" >
+							<key>
+							
+								
+								<column name="FK_idPedido_idPedido"/>
+					      	</key>
+							<one-to-many class="RestGenNHibernate.EN.Rest.PagoEN"/>
+					    </bag>
+					
+			
+		  			
+						<many-to-one name="Mesa" class="RestGenNHibernate.EN.Rest.MesaEN" >	
+								<column name="FK_idMesa_idMesa"/> 
+						</many-to-one>
+											 					
+			
+		  			
+					
+							<many-to-one name="Factura" class="RestGenNHibernate.EN.Rest.FacturaEN" >
+								<column name="FK_idFactura_idFactura"/> 
+        					</many-to-one>
+					 
+						
+			
+			
+		  			
+						<many-to-one name="Caja" class="RestGenNHibernate.EN.Rest.CajaEN" >	
+								<column name="FK_idCaja_idCaja"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="PedidoENReadAllHQL">from PedidoEN</query>
+		  <query name="PedidoENDamePedidoPlatoHQL"><![CDATA[select ped FROM PedidoEN as ped inner join ped.LineaPedido as lin where lin.Plato.Id =: p_idPlato]]></query>
+		  <query name="PedidoENDamePedidoMenuHQL"><![CDATA[selec ped FROM PedidoEN as ped inner join ped.LineaPedido as lin where lin.Menu.Id =: p_idMenu]]></query>
+		</hibernate-mapping>
+	

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="RestGenNHibernate"
+		                   namespace="RestGenNHibernate.EN.Rest">
+		    
+		    
+			
+				<class name="IngredienteEN" table="Ingrediente"> 
+				  	
+						<id name="Id" column="idIngrediente" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="CantidadStock" type="double"> 
+						<column name="cantidadStock"  not-null="true"/>
+					</property>
+					<property name="UnidadMedida" > 
+						<column name="unidadMedida"  not-null="true"/>
+					</property>
+			
+			
+			
+		  			
+						<bag name="LineaProveedor" >
+							<key>
+							
+								
+								<column name="FK_idIngrediente_idIngredientes"/>
+					      	</key>
+							<one-to-many class="RestGenNHibernate.EN.Rest.LineaPedidoProveedorEN"/>
+					    </bag>
+					
+			
+			
+			
+		  			
+						<bag name="Negocio" table="[ingrediente_negocio]"  >
+							<key>
+								
+									<column name="FK_idIngrediente_idIngrediente"/> 
+							</key>
+      						<many-to-many class="RestGenNHibernate.EN.Rest.NegocioEN">
+									<column name="FK_idNegocio_idNegocio"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="PlatoIngrediente" >
+							<key>
+							
+								
+								<column name="FK_idIngrediente_idIngrediente"/>
+					      	</key>
+							<one-to-many class="RestGenNHibernate.EN.Rest.PlatoIngredienteEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="IngredienteENReadAllHQL">from IngredienteEN</query>
+		  <query name="IngredienteENDameIngredienteProveedorHQL"><![CDATA[select serv FROM IngredienteEN as serv inner join serv.LineaProveedor as linProv where linProv.Id =: p_idProveedor]]></query>
+		  <query name="IngredienteENDameIngredientePlatoHQL"><![CDATA[select ing FROM IngredienteEN as ing inner join ing.PlatoIngrediente as plato where plato.Id=: p_idPlato]]></query>
+		</hibernate-mapping>
+	

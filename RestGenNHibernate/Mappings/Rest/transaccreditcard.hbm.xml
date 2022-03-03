@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="RestGenNHibernate"
+		                   namespace="RestGenNHibernate.EN.Rest">
+		    
+		    
+			
+				
+<joined-subclass name="TransacCreditCardEN" extends="RestGenNHibernate.EN.Rest.PagoEN" table="TransacCreditCard"> 
+	<key>
+    	
+				<column name="idPago"/>
+		
+    	
+   	</key>
+
+			
+					
+					<property name="NombreOwenCard" type="string"> 
+						<column name="nombreOwenCard"  not-null="true"/>
+					</property>
+			
+			
+					
+		
+ 	  
+		 </joined-subclass>
+		  
+		  <query name="TransacCreditCardENReadAllHQL">from TransacCreditCardEN</query>
+		</hibernate-mapping>
+	

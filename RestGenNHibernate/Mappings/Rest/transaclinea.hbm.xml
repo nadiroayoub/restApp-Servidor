@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="RestGenNHibernate"
+		                   namespace="RestGenNHibernate.EN.Rest">
+		    
+		    
+			
+				
+<joined-subclass name="TransacLineaEN" extends="RestGenNHibernate.EN.Rest.PagoEN" table="TransacLinea"> 
+	<key>
+    	
+				<column name="idPago"/>
+		
+    	
+   	</key>
+
+			
+					
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="Numero" type="string"> 
+						<column name="numero"  not-null="true"/>
+					</property>
+			
+			
+			
+					
+					
+		
+ 	  
+		 </joined-subclass>
+		  
+		  <query name="TransacLineaENReadAllHQL">from TransacLineaEN</query>
+		</hibernate-mapping>
+	

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="RestGenNHibernate"
+		                   namespace="RestGenNHibernate.EN.Rest">
+		    
+		    
+			
+				<class name="LineaPedidoProveedorEN" table="LineaPedidoProveedor"> 
+				  	
+						<id name="Id" column="idLineaPedidoProveedor" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Cantidad" type="integer"> 
+						<column name="cantidad"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+						<many-to-one name="Servicio" class="RestGenNHibernate.EN.Rest.ServicioEN" >	
+								<column name="FK_idServicio_idServicio"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Ingrediente" class="RestGenNHibernate.EN.Rest.IngredienteEN" >	
+								<column name="FK_idIngrediente_idIngredientes"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="PedidoProveedor" class="RestGenNHibernate.EN.Rest.PedidoProveedorEN" >	
+								<column name="FK_idPedidoProveedor_idPedidoProveedor"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="LineaPedidoProveedorENReadAllHQL">from LineaPedidoProveedorEN</query>
+		</hibernate-mapping>
+	

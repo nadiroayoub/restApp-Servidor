@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="RestGenNHibernate"
+		                   namespace="RestGenNHibernate.EN.Rest">
+		    
+		    
+			
+				<class name="ServicioEN" table="Servicio"> 
+				  	
+						<id name="Id" column="idServicio" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Tipo" > 
+						<column name="tipo"  not-null="true"/>
+					</property>
+					<property name="Fecha" type="date"> 
+						<column name="fecha"  not-null="true"/>
+					</property>
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="Monto" type="double"> 
+						<column name="monto"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="Negocio" class="RestGenNHibernate.EN.Rest.NegocioEN" >	
+								<column name="FK_idNegocio_idNegocio"/> 
+						</many-to-one>
+											 					
+			
+			
+			
+		  			
+						<bag name="LineaProveedor" >
+							<key>
+							
+								
+								<column name="FK_idServicio_idServicio"/>
+					      	</key>
+							<one-to-many class="RestGenNHibernate.EN.Rest.LineaPedidoProveedorEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ServicioENReadAllHQL">from ServicioEN</query>
+		</hibernate-mapping>
+	

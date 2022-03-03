@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="RestGenNHibernate"
+		                   namespace="RestGenNHibernate.EN.Rest">
+		    
+		    
+			
+				<class name="PagoEN" table="Pago"> 
+				  	
+						<id name="Id" column="idPago" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Monto" type="double"> 
+						<column name="monto"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+						<many-to-one name="Pedido" class="RestGenNHibernate.EN.Rest.PedidoEN" >	
+								<column name="FK_idPedido_idPedido"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="Cliente" >
+							<key>
+							
+								
+								<column name="FK_idPago_idPago"/>
+					      	</key>
+							<one-to-many class="RestGenNHibernate.EN.Rest.ClienteEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="PagoENReadAllHQL">from PagoEN</query>
+		  <query name="PagoENDamePagosHQL"><![CDATA[FROM PagoEN]]></query>
+		</hibernate-mapping>
+	

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="RestGenNHibernate"
+		                   namespace="RestGenNHibernate.EN.Rest">
+		    
+		    
+			
+				<class name="DueñoEN" table="Dueño"> 
+				  	
+						<id name="Dni" column="dniDueño" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="Apellido" type="string"> 
+						<column name="apellido"  not-null="true"/>
+					</property>
+					<property name="Telefono" type="string"> 
+						<column name="telefono"  not-null="true"/>
+					</property>
+					<property name="Pass" type="string"> 
+						<column name="pass"  not-null="true"/>
+					</property>
+			
+			
+			
+		  			
+						<bag name="Empresa" table="[dueño_empresa]"  >
+							<key>
+								
+									<column name="FK_dniDueño_idDueño"/> 
+							</key>
+      						<many-to-many class="RestGenNHibernate.EN.Rest.EmpresaEN">
+									<column name="FK_idEmpresa_idEmpresa"/> 
+      						</many-to-many>
+    					</bag>
+			
+			
+			
+			
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="DueñoENReadAllHQL">from DueñoEN</query>
+		</hibernate-mapping>
+	

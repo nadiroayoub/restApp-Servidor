@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="RestGenNHibernate"
+		                   namespace="RestGenNHibernate.EN.Rest">
+		    
+		    
+			
+				<class name="MesaEN" table="Mesa"> 
+				  	
+						<id name="Id" column="idMesa" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="CantidadPersonas" type="integer"> 
+						<column name="cantidadPersonas"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+						<bag name="Cliente" table="[cliente_mesa]" inverse="true" >
+							<key>
+								
+									<column name="FK_idMesa_idMesa"/> 
+							</key>
+      						<many-to-many class="RestGenNHibernate.EN.Rest.ClienteEN">
+									<column name="FK_dniCliente_idCliente"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Pedido" >
+							<key>
+							
+								
+								<column name="FK_idMesa_idMesa"/>
+					      	</key>
+							<one-to-many class="RestGenNHibernate.EN.Rest.PedidoEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Negocio" >
+							<key>
+							
+								
+								<column name="FK_idMesa_idMesa"/>
+					      	</key>
+							<one-to-many class="RestGenNHibernate.EN.Rest.NegocioEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="MesaENReadAllHQL">from MesaEN</query>
+		</hibernate-mapping>
+	

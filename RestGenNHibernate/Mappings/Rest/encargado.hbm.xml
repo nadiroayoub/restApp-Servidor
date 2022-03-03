@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="RestGenNHibernate"
+		                   namespace="RestGenNHibernate.EN.Rest">
+		    
+		    
+			
+				<class name="EncargadoEN" table="Encargado"> 
+				  	
+						<id name="Id" column="idEncargado" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+			
+			
+			
+		  			
+						<bag name="Rol" >
+							<key>
+							
+								
+								<column name="FK_idEncargado_idEncargado"/>
+					      	</key>
+							<one-to-many class="RestGenNHibernate.EN.Rest.RolEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Caja" >
+							<key>
+							
+								
+								<column name="FK_idEncargado_idEncargado"/>
+					      	</key>
+							<one-to-many class="RestGenNHibernate.EN.Rest.CajaEN"/>
+					    </bag>
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="EncargadoENReadAllHQL">from EncargadoEN</query>
+		</hibernate-mapping>
+	

@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+		<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		  <PropertyGroup>
+		    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		    <ProductVersion>8.0.30703</ProductVersion>
+		    <SchemaVersion>2.0</SchemaVersion>
+		    <ProjectGuid>{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}</ProjectGuid>
+		    <OutputType>Library</OutputType>
+		    <AppDesignerFolder>Properties</AppDesignerFolder>
+		    <RootNamespace>RestGenNHibernate</RootNamespace>
+		    <AssemblyName>RestGenNHibernate</AssemblyName>
+		    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+		    <FileAlignment>512</FileAlignment>
+		    <PublishUrl>publish\</PublishUrl>
+		    <Install>true</Install>
+		    <InstallFrom>Disk</InstallFrom>
+		    <UpdateEnabled>false</UpdateEnabled>
+		    <UpdateMode>Foreground</UpdateMode>
+		    <UpdateInterval>7</UpdateInterval>
+		    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+		    <UpdatePeriodically>false</UpdatePeriodically>
+		    <UpdateRequired>false</UpdateRequired>
+		    <MapFileExtensions>true</MapFileExtensions>
+		    <ApplicationRevision>0</ApplicationRevision>
+		    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+		    <IsWebBootstrapper>false</IsWebBootstrapper>
+		    <UseApplicationTrust>false</UseApplicationTrust>
+		    <BootstrapperEnabled>true</BootstrapperEnabled>
+		  </PropertyGroup>
+		  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		    <DebugSymbols>true</DebugSymbols>
+		    <DebugType>full</DebugType>
+		    <Optimize>false</Optimize>
+		    <OutputPath>bin\Debug\</OutputPath>
+		    <DefineConstants>DEBUG;TRACE</DefineConstants>
+		    <ErrorReport>prompt</ErrorReport>
+		    <WarningLevel>4</WarningLevel>
+		  </PropertyGroup>
+		  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		    <DebugType>pdbonly</DebugType>
+		    <Optimize>true</Optimize>
+		    <OutputPath>bin\Release\</OutputPath>
+		    <DefineConstants>TRACE</DefineConstants>
+		    <ErrorReport>prompt</ErrorReport>
+		    <WarningLevel>4</WarningLevel>
+		  </PropertyGroup>
+		<ItemGroup>
+		    <Reference Include="Castle.DynamicProxy2, Version=2.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\restGenNHibernate\AppLib\Castle.DynamicProxy2.dll</HintPath>
+		    </Reference>
+		    <Reference Include="LinFu.DynamicProxy, Version=1.0.3.14911, Culture=neutral, PublicKeyToken=62a6874124340d6e, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\restGenNHibernate\AppLib\LinFu.DynamicProxy.dll</HintPath>
+		    </Reference>
+		    <Reference Include="NHibernate, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\restGenNHibernate\AppLib\NHibernate.dll</HintPath>
+		    </Reference>
+		    <Reference Include="NHibernate.ByteCode.Castle, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\restGenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll</HintPath>
+		    </Reference>
+		    <Reference Include="NHibernate.ByteCode.LinFu, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\restGenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll</HintPath>
+		    </Reference>
+		    <Reference Include="Newtonsoft.Json, Version=4.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\restGenNHibernate\AppLib\Newtonsoft.Json.dll</HintPath>
+		    </Reference>
+		     <Reference Include="jose-jwt, Version=4.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\restGenNHibernate\AppLib\jose-jwt.dll</HintPath>
+		    </Reference>
+		    <Reference Include="System" />
+		    <Reference Include="System.Core">
+		      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+		    </Reference>
+		    
+		    <Reference Include="System.Transactions" />
+		    <Reference Include="System.Xml.Linq">
+		      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+		    </Reference>
+		    <Reference Include="System.Data.DataSetExtensions">
+		      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+		    </Reference>
+		    <Reference Include="System.Data" />
+		    <Reference Include="System.Xml" />
+		</ItemGroup>
+		
+		<ItemGroup>
+		    <Content Include="..\restGenNHibernate\AppLib\Antlr3.Runtime.dll" />
+		    <Content Include="..\restGenNHibernate\AppLib\Castle.DynamicProxy2.dll" />
+		    <Content Include="..\restGenNHibernate\AppLib\Iesi.Collections.dll" />
+		    <Content Include="..\restGenNHibernate\AppLib\LinFu.DynamicProxy.dll" />
+		    <Content Include="..\restGenNHibernate\AppLib\log4net.dll" />
+		    <Content Include="..\restGenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll" />
+		    <Content Include="..\restGenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll" />
+		    <Content Include="..\restGenNHibernate\AppLib\NHibernate.dll" />
+		    <Content Include="..\restGenNHibernate\AppLib\nunit.core.dll" />
+		    <Content Include="..\restGenNHibernate\AppLib\nunit.framework.dll" />
+  		    <Content Include="..\restGenNHibernate\AppLib\jose-jwt.dll" />
+  		</ItemGroup>
+  		
+		<ItemGroup>
+			<Compile Include="NHibernateHelper.cs" />
+		    <Compile Include="Utils\Util.cs" />
+		    <Compile Include="Exceptions\ModelException.cs"/>
+		    <Compile Include="Exceptions\DataLayerException.cs"/>
+		    
+	<Compile Include="CAD\BasicCAD.cs"/>
+	<Compile Include="CP\BasicCP.cs"/>
+	<Compile Include="EN\Rest\NegocioEN.cs" />
+	<Compile Include="CEN\Rest\NegocioCEN.cs" />
+	<Compile Include="CAD\Rest\INegocioCAD.cs" />
+	<Compile Include="CAD\Rest\NegocioCAD.cs" />
+	<Compile Include="CP\Rest\NegocioCP.cs" />
+			
+			
+			
+			
+	<Compile Include="EN\Rest\EmpleadoEN.cs" />
+	<Compile Include="CEN\Rest\EmpleadoCEN.cs" />
+	<Compile Include="CAD\Rest\IEmpleadoCAD.cs" />
+	<Compile Include="CAD\Rest\EmpleadoCAD.cs" />
+	<Compile Include="CP\Rest\EmpleadoCP.cs" />
+			
+			
+			
+	<Compile Include="EN\Rest\RolEN.cs" />
+	<Compile Include="CEN\Rest\RolCEN.cs" />
+	<Compile Include="CAD\Rest\IRolCAD.cs" />
+	<Compile Include="CAD\Rest\RolCAD.cs" />
+	<Compile Include="CP\Rest\RolCP.cs" />
+			
+			
+			
+			<Compile Include="CEN\Rest\RolCEN_AsignarCajero.cs" />
+			
+			
+			<Compile Include="CEN\Rest\RolCEN_AsignarCocinero.cs" />
+			
+			<Compile Include="CEN\Rest\RolCEN_NuevoCamarero.cs" />
+			
+			<Compile Include="CEN\Rest\RolCEN_AsignarCamarero.cs" />
+			
+			<Compile Include="CEN\Rest\RolCEN_NuevoEncargado.cs" />
+			
+			<Compile Include="CEN\Rest\RolCEN_AsignarEncargado.cs" />
+			
+	<Compile Include="EN\Rest\CamareroEN.cs" />
+	<Compile Include="CEN\Rest\CamareroCEN.cs" />
+	<Compile Include="CAD\Rest\ICamareroCAD.cs" />
+	<Compile Include="CAD\Rest\CamareroCAD.cs" />
+	<Compile Include="CP\Rest\CamareroCP.cs" />
+			
+			
+			
+			<Compile Include="CEN\Rest\CamareroCEN_AnotarPedido.cs" />
+			
+			<Compile Include="CEN\Rest\CamareroCEN_AnyadirPedido.cs" />
+			
+			<Compile Include="CEN\Rest\CamareroCEN_ModificarPedido.cs" />
+			
+	<Compile Include="EN\Rest\CocineroEN.cs" />
+	<Compile Include="CEN\Rest\CocineroCEN.cs" />
+	<Compile Include="CAD\Rest\ICocineroCAD.cs" />
+	<Compile Include="CAD\Rest\CocineroCAD.cs" />
+	<Compile Include="CP\Rest\CocineroCP.cs" />
+			
+			
+			
+			<Compile Include="CEN\Rest\CocineroCEN_FinalizarPedido.cs" />
+			
+			<Compile Include="CEN\Rest\CocineroCEN_RecibirNotifiPedido.cs" />
+			
+	<Compile Include="EN\Rest\CajeroEN.cs" />
+	<Compile Include="CEN\Rest\CajeroCEN.cs" />
+	<Compile Include="CAD\Rest\ICajeroCAD.cs" />
+	<Compile Include="CAD\Rest\CajeroCAD.cs" />
+	<Compile Include="CP\Rest\CajeroCP.cs" />
+			
+			
+			
+			<Compile Include="CEN\Rest\CajeroCEN_GenerarCuenta.cs" />
+			
+			<Compile Include="CEN\Rest\CajeroCEN_RecibirPago.cs" />
+			
+	<Compile Include="EN\Rest\DueñoEN.cs" />
+	<Compile Include="CEN\Rest\DueñoCEN.cs" />
+	<Compile Include="CAD\Rest\IDueñoCAD.cs" />
+	<Compile Include="CAD\Rest\DueñoCAD.cs" />
+	<Compile Include="CP\Rest\DueñoCP.cs" />
+			
+			
+			
+	<Compile Include="EN\Rest\EncargadoEN.cs" />
+	<Compile Include="CEN\Rest\EncargadoCEN.cs" />
+	<Compile Include="CAD\Rest\IEncargadoCAD.cs" />
+	<Compile Include="CAD\Rest\EncargadoCAD.cs" />
+	<Compile Include="CP\Rest\EncargadoCP.cs" />
+			
+			
+			
+	<Compile Include="EN\Rest\ServicioEN.cs" />
+	<Compile Include="CEN\Rest\ServicioCEN.cs" />
+	<Compile Include="CAD\Rest\IServicioCAD.cs" />
+	<Compile Include="CAD\Rest\ServicioCAD.cs" />
+	<Compile Include="CP\Rest\ServicioCP.cs" />
+			
+			
+			
+	<Compile Include="EN\Rest\PedidoEN.cs" />
+	<Compile Include="CEN\Rest\PedidoCEN.cs" />
+	<Compile Include="CAD\Rest\IPedidoCAD.cs" />
+	<Compile Include="CAD\Rest\PedidoCAD.cs" />
+	<Compile Include="CP\Rest\PedidoCP.cs" />
+			
+			
+			
+			
+			
+	<Compile Include="EN\Rest\MenuEN.cs" />
+	<Compile Include="CEN\Rest\MenuCEN.cs" />
+	<Compile Include="CAD\Rest\IMenuCAD.cs" />
+	<Compile Include="CAD\Rest\MenuCAD.cs" />
+	<Compile Include="CP\Rest\MenuCP.cs" />
+			
+			
+			
+			<Compile Include="CEN\Rest\MenuCEN_DecrementoStockMenu.cs" />
+			
+			<Compile Include="CEN\Rest\MenuCEN_IncrementoStockMenu.cs" />
+			
+	<Compile Include="EN\Rest\PlatoEN.cs" />
+	<Compile Include="CEN\Rest\PlatoCEN.cs" />
+	<Compile Include="CAD\Rest\IPlatoCAD.cs" />
+	<Compile Include="CAD\Rest\PlatoCAD.cs" />
+	<Compile Include="CP\Rest\PlatoCP.cs" />
+			
+			
+			
+			<Compile Include="CEN\Rest\PlatoCEN_DecrementoStockPlato.cs" />
+			
+			<Compile Include="CEN\Rest\PlatoCEN_IncrementoStockPlato.cs" />
+			
+	<Compile Include="EN\Rest\LineaPedidoEN.cs" />
+	<Compile Include="CEN\Rest\LineaPedidoCEN.cs" />
+	<Compile Include="CAD\Rest\ILineaPedidoCAD.cs" />
+	<Compile Include="CAD\Rest\LineaPedidoCAD.cs" />
+	<Compile Include="CP\Rest\LineaPedidoCP.cs" />
+			
+			
+			
+			<Compile Include="CEN\Rest\LineaPedidoCEN_NuevaLineaPlato.cs" />
+			
+			<Compile Include="CEN\Rest\LineaPedidoCEN_AsignarLineaPlato.cs" />
+			
+			<Compile Include="CEN\Rest\LineaPedidoCEN_AsignarLineaMenu.cs" />
+			
+	<Compile Include="EN\Rest\BebidaEN.cs" />
+	<Compile Include="CEN\Rest\BebidaCEN.cs" />
+	<Compile Include="CAD\Rest\IBebidaCAD.cs" />
+	<Compile Include="CAD\Rest\BebidaCAD.cs" />
+	<Compile Include="CP\Rest\BebidaCP.cs" />
+			
+			
+			
+	<Compile Include="EN\Rest\ComidaEN.cs" />
+	<Compile Include="CEN\Rest\ComidaCEN.cs" />
+	<Compile Include="CAD\Rest\IComidaCAD.cs" />
+	<Compile Include="CAD\Rest\ComidaCAD.cs" />
+	<Compile Include="CP\Rest\ComidaCP.cs" />
+			
+			
+			
+	<Compile Include="EN\Rest\IngredienteEN.cs" />
+	<Compile Include="CEN\Rest\IngredienteCEN.cs" />
+	<Compile Include="CAD\Rest\IIngredienteCAD.cs" />
+	<Compile Include="CAD\Rest\IngredienteCAD.cs" />
+	<Compile Include="CP\Rest\IngredienteCP.cs" />
+			
+			
+			
+			<Compile Include="CEN\Rest\IngredienteCEN_DecrementoIngrediente.cs" />
+			
+			<Compile Include="CEN\Rest\IngredienteCEN_IncrementoIngrediente.cs" />
+			
+			
+			
+	<Compile Include="EN\Rest\PagoEN.cs" />
+	<Compile Include="CEN\Rest\PagoCEN.cs" />
+	<Compile Include="CAD\Rest\IPagoCAD.cs" />
+	<Compile Include="CAD\Rest\PagoCAD.cs" />
+	<Compile Include="CP\Rest\PagoCP.cs" />
+			
+			
+			
+			
+	<Compile Include="EN\Rest\TransacLineaEN.cs" />
+	<Compile Include="CEN\Rest\TransacLineaCEN.cs" />
+	<Compile Include="CAD\Rest\ITransacLineaCAD.cs" />
+	<Compile Include="CAD\Rest\TransacLineaCAD.cs" />
+	<Compile Include="CP\Rest\TransacLineaCP.cs" />
+			
+			
+			
+	<Compile Include="EN\Rest\TransacCreditCardEN.cs" />
+	<Compile Include="CEN\Rest\TransacCreditCardCEN.cs" />
+	<Compile Include="CAD\Rest\ITransacCreditCardCAD.cs" />
+	<Compile Include="CAD\Rest\TransacCreditCardCAD.cs" />
+	<Compile Include="CP\Rest\TransacCreditCardCP.cs" />
+			
+			
+			
+	<Compile Include="EN\Rest\FacturaEN.cs" />
+	<Compile Include="CEN\Rest\FacturaCEN.cs" />
+	<Compile Include="CAD\Rest\IFacturaCAD.cs" />
+	<Compile Include="CAD\Rest\FacturaCAD.cs" />
+	<Compile Include="CP\Rest\FacturaCP.cs" />
+			
+			
+			
+			
+			
+	<Compile Include="EN\Rest\ProveedorEN.cs" />
+	<Compile Include="CEN\Rest\ProveedorCEN.cs" />
+	<Compile Include="CAD\Rest\IProveedorCAD.cs" />
+	<Compile Include="CAD\Rest\ProveedorCAD.cs" />
+	<Compile Include="CP\Rest\ProveedorCP.cs" />
+			
+			
+			
+	<Compile Include="EN\Rest\MesaEN.cs" />
+	<Compile Include="CEN\Rest\MesaCEN.cs" />
+	<Compile Include="CAD\Rest\IMesaCAD.cs" />
+	<Compile Include="CAD\Rest\MesaCAD.cs" />
+	<Compile Include="CP\Rest\MesaCP.cs" />
+			
+			
+			
+	<Compile Include="EN\Rest\ClienteEN.cs" />
+	<Compile Include="CEN\Rest\ClienteCEN.cs" />
+	<Compile Include="CAD\Rest\IClienteCAD.cs" />
+	<Compile Include="CAD\Rest\ClienteCAD.cs" />
+	<Compile Include="CP\Rest\ClienteCP.cs" />
+			
+			
+			
+	<Compile Include="EN\Rest\EmpresaEN.cs" />
+	<Compile Include="CEN\Rest\EmpresaCEN.cs" />
+	<Compile Include="CAD\Rest\IEmpresaCAD.cs" />
+	<Compile Include="CAD\Rest\EmpresaCAD.cs" />
+	<Compile Include="CP\Rest\EmpresaCP.cs" />
+			
+			
+			
+			
+	<Compile Include="EN\Rest\LineaPedidoProveedorEN.cs" />
+	<Compile Include="CEN\Rest\LineaPedidoProveedorCEN.cs" />
+	<Compile Include="CAD\Rest\ILineaPedidoProveedorCAD.cs" />
+	<Compile Include="CAD\Rest\LineaPedidoProveedorCAD.cs" />
+	<Compile Include="CP\Rest\LineaPedidoProveedorCP.cs" />
+			
+			
+			
+			<Compile Include="CEN\Rest\LineaPedidoProveedorCEN_NuevaLineaIngrediente.cs" />
+			
+			<Compile Include="CEN\Rest\LineaPedidoProveedorCEN_AsignarServicio.cs" />
+			
+			<Compile Include="CEN\Rest\LineaPedidoProveedorCEN_AsignarIngrediente.cs" />
+			
+	<Compile Include="EN\Rest\CajaEN.cs" />
+	<Compile Include="CEN\Rest\CajaCEN.cs" />
+	<Compile Include="CAD\Rest\ICajaCAD.cs" />
+	<Compile Include="CAD\Rest\CajaCAD.cs" />
+	<Compile Include="CP\Rest\CajaCP.cs" />
+			
+			
+			
+			<Compile Include="CEN\Rest\CajaCEN_DecrementoCash.cs" />
+			
+			<Compile Include="CEN\Rest\CajaCEN_IncrementoCash.cs" />
+			
+			
+	<Compile Include="EN\Rest\PlatoIngredienteEN.cs" />
+	<Compile Include="CEN\Rest\PlatoIngredienteCEN.cs" />
+	<Compile Include="CAD\Rest\IPlatoIngredienteCAD.cs" />
+	<Compile Include="CAD\Rest\PlatoIngredienteCAD.cs" />
+	<Compile Include="CP\Rest\PlatoIngredienteCP.cs" />
+			
+			
+			
+			<Compile Include="CEN\Rest\PlatoIngredienteCEN_DecrementoStockPlatoIngrediente.cs" />
+			
+			<Compile Include="CEN\Rest\PlatoIngredienteCEN_IncrementoStockPlatoIngrediente.cs" />
+			
+	<Compile Include="EN\Rest\MovimientoEN.cs" />
+	<Compile Include="CEN\Rest\MovimientoCEN.cs" />
+	<Compile Include="CAD\Rest\IMovimientoCAD.cs" />
+	<Compile Include="CAD\Rest\MovimientoCAD.cs" />
+	<Compile Include="CP\Rest\MovimientoCP.cs" />
+			
+			
+			
+	<Compile Include="EN\Rest\PedidoProveedorEN.cs" />
+	<Compile Include="CEN\Rest\PedidoProveedorCEN.cs" />
+	<Compile Include="CAD\Rest\IPedidoProveedorCAD.cs" />
+	<Compile Include="CAD\Rest\PedidoProveedorCAD.cs" />
+	<Compile Include="CP\Rest\PedidoProveedorCP.cs" />
+			
+			
+			
+	<Compile Include="Enumerated\Rest\EstadoPedidoEnum.cs" />
+	<Compile Include="Enumerated\Rest\TipoServicioEnum.cs" />
+	<Compile Include="Enumerated\Rest\UnidadEnum.cs" />
+	<Compile Include="Enumerated\Rest\TipoBebidaEnum.cs" />
+	<Compile Include="Enumerated\Rest\TipoProveedorEnum.cs" />
+	
+	
+
+		    
+	
+
+		    <Compile Include="Properties\AssemblyInfo.cs" />
+		    <Compile Include="Properties\Settings.Designer.cs">
+		      <AutoGen>True</AutoGen>
+		      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+		      <DependentUpon>Settings.settings</DependentUpon>
+		    </Compile>
+		  </ItemGroup>
+		  <ItemGroup>
+		  
+	<EmbeddedResource Include="Mappings\Rest\negocio.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\empleado.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\rol.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\camarero.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\cocinero.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\cajero.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\dueño.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\encargado.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\servicio.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\pedido.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\menu.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\plato.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\lineapedido.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\bebida.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\comida.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\ingrediente.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\pago.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\transaclinea.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\transaccreditcard.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\factura.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\proveedor.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\mesa.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\cliente.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\empresa.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\lineapedidoproveedor.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\caja.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\platoingrediente.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\movimiento.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Rest\pedidoproveedor.hbm.xml" />
+	
+	
+
+		  </ItemGroup>
+		  <ItemGroup>
+		    <Content Include="hibernate.cfg.xml">
+		      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		    </Content>
+		  </ItemGroup>
+		  <ItemGroup>
+		    <None Include="app.config" />
+		    <None Include="Properties\Settings.settings">
+		      <Generator>SettingsSingleFileGenerator</Generator>
+		      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+		    </None>
+		        <None Include="Resources\xsd\nhibernate-configuration.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\xsd\nhibernate-mapping.xsd">
+      <SubType>Designer</SubType>
+    </None>
+		  </ItemGroup>
+	 	
+		
+	
+		<ItemGroup>
+		    <ProjectReference Include="..\APIExterna\APIExterna.csproj">
+		      <Project>{4ade35c8-a0c3-49da-9e1a-11a53ca19214}</Project>
+		      <Name>APIExterna</Name>
+		    </ProjectReference>
+	    </ItemGroup>
+	    
+		  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+		  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+		       Other similar extension points exist, see Microsoft.Common.targets.
+		  <Target Name="BeforeBuild">
+		  </Target>
+		  <Target Name="AfterBuild">
+		  </Target>
+		  -->
+		</Project>
