@@ -149,7 +149,7 @@ public static void InitializeData ()
                 int idCaja = cajaCEN.Nuevo(DateTime.Today,1000.00,500.00,5.00,idNegocio,idEncargado);
                 int pedidoId = pedidoCEN.Nuevo(RestGenNHibernate.Enumerated.Rest.EstadoPedidoEnum.preparado, idCamarero, idMesa, DateTime.Today, idCaja);
                 lineapedidoCEN.NuevaLineaMenu(pedidoId, 20);
-
+                //cambio de prueba
                 
             }
             catch (Exception ex)
