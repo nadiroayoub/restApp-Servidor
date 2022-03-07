@@ -91,8 +91,8 @@ public static void InitializeData ()
                 CocineroCEN cocineroCEN = new CocineroCEN();
                 ComidaCAD comidaCAD = new ComidaCAD();
                 ComidaCEN comidaCEN = new ComidaCEN();
-                DueñoCAD dueñoCAD = new DueñoCAD();
-                DueñoCEN dueñoCEN = new DueñoCEN();
+                Dueï¿½oCAD dueï¿½oCAD = new Dueï¿½oCAD();
+                Dueï¿½oCEN dueï¿½oCEN = new Dueï¿½oCEN();
                 EmpleadoCAD empleadoCAD = new EmpleadoCAD();
                 EmpleadoCEN empleadoCEN = new EmpleadoCEN();
                 EmpresaCAD empresaCAD = new EmpresaCAD();
@@ -135,16 +135,69 @@ public static void InitializeData ()
                 bebidaCEN.Nuevo("Coca cola", 2,  RestGenNHibernate.Enumerated.Rest.TipoBebidaEnum.refresco, "Coca cola light");
                 bebidaCEN.Nuevo("Coca cola", 1,  RestGenNHibernate.Enumerated.Rest.TipoBebidaEnum.refresco, "Coca cola normal");
 
-                comidaCEN.Nuevo("Arroz moro", 3, "Comida cubana", "Bajo en calorías");
+                comidaCEN.Nuevo("Arroz moro", 3, "Comida cubana", "Bajo en calorï¿½as");
 
                 platoCEN.Nuevo("Plato especial", 3);
 
-                menuCEN.Nuevo("Menú de la casa", 1);
+                menuCEN.Nuevo("Menï¿½ de la casa", 1);
+
+                //anadir los productos Racha
+                IngredienteCAD IngredienteCAD = new IngredienteCAD();
+                IngredienteCEN IngredienteCEN = new IngredienteCEN();
+
+                int IdCaja1 = cajaCEN.Nueva(DateTime.Today, 600, 200, 0, IdNegocio1, IdEncargado1);
+                int IdCaja2 =cajaCEN.Nueva(DateTime.Today, 1450, 780, 0, IdNegocio2, IdEncargado2);
+
+                int IdEmpresa1 = empresaCEN.Nueva("Muerde la Pasta", "CALLE MARIE CURIE 4, 28521  MADRID");
+                int IdEmpresa2 = empresaCEN.Nueva("MANOMAR HOSTELERIA SL", "CALLE SAN JUDAS 73,30420 MURCIA");
+
+                int IdNegocio1 = negocioCEN.Nuevo("Restaurante Alicante Plus", "Calle del Oso, 10", "Alicante", "00320", "Alicante", "EspaÃ±a", IdEmpresa1);
+                int IdNegocio2 = negocioCEN.Nuevo("Finca Santa Luzia", " Av. de Alicante, 38, BAJO", "San Juan", "03550", "Alicante", "EspaÃ±a", IdEmpresa2);
+
+                int IdPedido1 = pedidoCEN.Nuevo(RestGenNHibernate.Enumerated.Rest.EstadoPedidoEnum.comanda, DateTime.Today, IdCamarero1, IdMesa1, IdPago1);
+                int IdPedido2 = pedidoCEN.Nuevo(RestGenNHibernate.Enumerated.Rest.EstadoPedidoEnum.preparado, DateTime.Today, IdCamarero2, IdMesa2, IdPago2);
+
+                int IdCamarero1 = camareroCEN.Nuevo("00423371K", "NATALIA", "HERNANDEZ RUIZ", 655238754, IdNegocio1);
+                int IdCamarero2 = camareroCEN.Nuevo("00235532Y", "JOSE", "ALONSO ROMERO", 612765496, IdNegocio2);
+
+                int IdMesa1 = mesaCEN.Nuevo(6, IdNegocio1);
+                int IdMesa2 = mesaCEN.Nuevo(2, IdNegocio2);
+
+                int IdPago1 = pagoCEN.Nuevo(50);
+                int IdPago2 = pagoCEN.Nuevo(20);
+
+                int Cliente1 = clienteCEN.Nuevo("00739100H", "ANDRES", "GIL MORALES");
+                int Cliente2 = clienteCEN.Nuevo("00238754D", "SERGIO", "TORRES RAMOS");
+
+                int IdFactura1 = facturaCEN.Nueva( DateTime.Today, 50, "2 Menus del dia ", Cliente1, IdPedido1);
+                int IdFactura2 = facturaCEN.Nueva( DateTime.Today, 20, "1 Entrecot, 1 Pan , 1 Bebida, 1 Cafe solo", Cliente2, IdPedido2);
+
+
+                int IdCajero1 = cajeroCEN.Nuevo( "00523821F", "ANTONIO", "GARCIA LOPEZ", 623096743, IdNegocio1);
+                int IdCajero2 =cajeroCEN.Nuevo( "00983671J", "SERGIO", "SANCHEZ PEREZ", 673497634, IdNegocio2);
+
+                int IdCocinero1 = cocineroCEN.Nuevo( "66379423V", "SANTIAGO", "DELGADO RUIZ", 606432201, IdNegocio1);
+                int IdCocinero2 = cocineroCEN.Nuevo( "15435576W", "DAVID", "ALONSO SERRANO", 665324412, IdNegocio2);
+
+                int IdDueÃ±o1 = dueÃ±oCEN.Nuevo(IdEmpresa1);
+                int IdDueÃ±o2 = dueÃ±oCEN.Nuevo(IdEmpresa2);
+
+                int IdEncargado1 = encargadoCEN.Nuevo( "55126534X", "JUAN", "GARCIA MARTINEZ", 622324534, IdNegocio2);
+                int IdEncargado2 = encargadoCEN.Nuevo( "66187122M", "MARIA", "PASCUAL DIEZ", 655434534, IdNegocio1);
+
+                int IdIngrediente1 = IngredienteCEN.Nuevo(20, RestGenNHibernate.Enumerated.Rest.UnidadEnum.caja, IdNegocio1);
+                int IdIngrediente2 = IngredienteCEN.Nuevo(170, RestGenNHibernate.Enumerated.Rest.UnidadEnum.botella, IdNegocio2);
+                // falta LineaProveedor Proveedor Movimiento
+
+
+
+                lineapedidoCEN.Nueva(pedidoId, 4);
+
 
                 int idCamarero = camareroCEN.Nuevo();
                 int idMesa = mesaCEN.Nuevo(4);
 
-                int idNegocio = negocioCEN.Nuevo("Restaurante Alicante Plus", "Calle del Oso, 10", "Alicante", "00320", "Alicante", "España", 10);
+                int idNegocio = negocioCEN.Nuevo("Restaurante Alicante Plus", "Calle del Oso, 10", "Alicante", "00320", "Alicante", "Espaï¿½a", 10);
                 int idEncargado = encargadoCEN.Nuevo();
                 int idCaja = cajaCEN.Nuevo(DateTime.Today,1000.00,500.00,5.00,idNegocio,idEncargado);
                 int pedidoId = pedidoCEN.Nuevo(RestGenNHibernate.Enumerated.Rest.EstadoPedidoEnum.preparado, idCamarero, idMesa, DateTime.Today, idCaja);
